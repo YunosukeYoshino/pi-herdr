@@ -157,9 +157,7 @@ export default function (
 	createHerdExtension(pi, {
 		herdr: options.herdr ?? createHerdrCli(herdrProcessRunner()),
 		roles: loadRoles(options.agentsDir ?? join(dirFromUrl(import.meta.url), "..", "agents")),
-		settings: loadSettings(
-			options.settingsPath ?? join(homedir(), ".pi/agent/settings.json"),
-		),
+		settings: loadSettings(options.settingsPath ?? join(homedir(), ".pi/agent/settings.json")),
 		parentModel: options.parentModel,
 	});
 }

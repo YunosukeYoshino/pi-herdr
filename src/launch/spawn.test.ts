@@ -68,10 +68,7 @@ test("spawn prompts the started agent with the task", async () => {
 test("spawn uses a unique herdr agent name", async () => {
 	const herdr = memoryHerdr({ nextPaneId: "w1:p2" });
 
-	const result = await spawn(
-		{ role: "worker", model: "deepseek-v4-pro", id: "a1b2c3d4" },
-		herdr,
-	);
+	const result = await spawn({ role: "worker", model: "deepseek-v4-pro", id: "a1b2c3d4" }, herdr);
 
 	expect(result).toEqual({ name: "worker-a1b2c3d4" });
 	expect(herdr.agent("worker-a1b2c3d4")).toEqual({

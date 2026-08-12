@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "useTabs": true,
+  "tabWidth": 2,
+  "printWidth": 100,
+  "singleQuote": false,
+  "trailingComma": "all",
+  "semi": true,
+  "arrowParens": "always",
+  "ignorePatterns": [".codegraph"],
+  "overrides": [
+    {
+      "files": ["*.json", "*.jsonc", "*.md"],
+      "options": {
+        "useTabs": false
+      }
+    }
+  ]
+}

@@ -2,25 +2,24 @@
   "name": "@yunosukeyoshino/pi-herdr",
   "version": "0.1.0",
   "description": "Spawn role-based Pi subagents in Herdr panes",
-  "type": "module",
+  "keywords": [
+    "herdr",
+    "pi",
+    "pi-coding-agent",
+    "pi-extension",
+    "pi-package",
+    "subagents"
+  ],
+  "homepage": "https://github.com/YunosukeYoshino/pi-herdr#readme",
+  "bugs": {
+    "url": "https://github.com/YunosukeYoshino/pi-herdr/issues"
+  },
   "license": "MIT",
   "author": "YunosukeYoshino",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/YunosukeYoshino/pi-herdr.git"
   },
-  "homepage": "https://github.com/YunosukeYoshino/pi-herdr#readme",
-  "bugs": {
-    "url": "https://github.com/YunosukeYoshino/pi-herdr/issues"
-  },
-  "keywords": [
-    "pi-package",
-    "pi",
-    "pi-coding-agent",
-    "pi-extension",
-    "herdr",
-    "subagents"
-  ],
   "files": [
     "index.ts",
     "src",
@@ -29,20 +28,33 @@
     "README.md",
     "LICENSE"
   ],
-  "scripts": {
-    "test": "bun test"
-  },
+  "type": "module",
   "publishConfig": {
     "access": "public"
   },
-  "pi": {
-    "extensions": ["./index.ts"],
-    "image": "https://raw.githubusercontent.com/YunosukeYoshino/pi-herdr/main/docs/banner.png"
+  "scripts": {
+    "fmt": "oxfmt",
+    "lint": "oxlint .",
+    "typecheck": "tsgo --noEmit",
+    "test": "bun test",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.14",
+    "@typescript/native-preview": "^7.0.0-dev.20260707.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
+    "oxfmt": "^0.62.0",
+    "oxlint": "^1.77.0",
+    "typebox": "^1.3.10"
   },
   "peerDependencies": {
     "typebox": "*"
   },
-  "devDependencies": {
-    "typebox": "^1.3.10"
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "image": "https://raw.githubusercontent.com/YunosukeYoshino/pi-herdr/main/docs/banner.png"
   }
 }

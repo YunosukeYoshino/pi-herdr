@@ -82,22 +82,22 @@ Those are ordinary Pi requests. Pi decides whether to call `herd_spawn`, `herd_s
 
 ## Common workflows
 
-| Want | Ask naturally |
-|------|---------------|
-| Implement something | “Have worker implement the current TODOs.” |
-| Review a diff | “Use reviewer to review this diff. Do not implement.” |
-| Follow up | “Tell worker-a1b2c3d4 to add tests too.” |
-| Check progress | “What's the status of worker-a1b2c3d4?” |
+| Want                    | Ask naturally                                           |
+| ----------------------- | ------------------------------------------------------- |
+| Implement something     | “Have worker implement the current TODOs.”              |
+| Review a diff           | “Use reviewer to review this diff. Do not implement.”   |
+| Follow up               | “Tell worker-a1b2c3d4 to add tests too.”                |
+| Check progress          | “What's the status of worker-a1b2c3d4?”                 |
 | Pin a model for one run | “Spawn worker with model deepseek-v4-pro on this task.” |
 
 The extension ships with two roles you can use immediately.
 
 ## Builtin roles in plain English
 
-| Role | Use it when you want... |
-|------|-------------------------|
-| `worker` | Implementation work. Default model: `deepseek-v4-flash`. |
-| `reviewer` | Code review only. Default model: `kimi-k3`. |
+| Role       | Use it when you want...                                  |
+| ---------- | -------------------------------------------------------- |
+| `worker`   | Implementation work. Default model: `deepseek-v4-flash`. |
+| `reviewer` | Code review only. Default model: `kimi-k3`.              |
 
 A simple rule of thumb: use `worker` to change code, `reviewer` to check it.
 
@@ -140,18 +140,18 @@ What's the status of worker-a1b2c3d4?
 Tell worker-a1b2c3d4 to add tests too.
 ```
 
-| Tool | What it does |
-|------|----------------|
-| `herd_spawn` | Split a pane, start Pi, send the task |
-| `herd_steer` | Send a follow-up prompt to a spawned agent |
+| Tool          | What it does                                        |
+| ------------- | --------------------------------------------------- |
+| `herd_spawn`  | Split a pane, start Pi, send the task               |
+| `herd_steer`  | Send a follow-up prompt to a spawned agent          |
 | `herd_status` | Read Herdr status (`idle`, `working`, `blocked`, …) |
 
 ## Direct commands
 
 You do not need this until you want exact syntax.
 
-| Command | Description |
-|---------|-------------|
+| Command               | Description                                                  |
+| --------------------- | ------------------------------------------------------------ |
 | `/herd <role> <task>` | Tell the parent to call `herd_spawn` with that role and task |
 
 ```text

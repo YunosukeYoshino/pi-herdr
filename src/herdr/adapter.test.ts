@@ -78,13 +78,7 @@ test("promptAgent runs herdr agent prompt with wait", async () => {
 		text: "implement the parser",
 	});
 
-	expect(argv).toEqual([
-		"agent",
-		"prompt",
-		"worker",
-		"implement the parser",
-		"--wait",
-	]);
+	expect(argv).toEqual(["agent", "prompt", "worker", "implement the parser", "--wait"]);
 });
 
 test("getAgent returns name pane and status from herdr JSON", async () => {

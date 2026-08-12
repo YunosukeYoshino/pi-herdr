@@ -47,10 +47,12 @@ function memoryHerdr(options: { nextPaneId: string }): HerdrClient & {
 
 test("herd_spawn tool starts a herdr agent with the role model", async () => {
 	const herdr = memoryHerdr({ nextPaneId: "w1:p2" });
-	let execute: ((
-		toolCallId: string,
-		params: { role: string; task: string; model?: string },
-	) => Promise<unknown>) | undefined;
+	let execute:
+		| ((
+				toolCallId: string,
+				params: { role: string; task: string; model?: string },
+		  ) => Promise<unknown>)
+		| undefined;
 
 	createHerdExtension(
 		{
@@ -105,9 +107,15 @@ test("herd_spawn uses the session model when the role has no model", async () =>
 		},
 	);
 
-	const spawned = (await execute?.("call-1", { role: "worker", task: "implement the parser" }, undefined, undefined, {
-		model: { id: "deepseek-v4-flash" },
-	})) as { details: { name: string } };
+	const spawned = (await execute?.(
+		"call-1",
+		{ role: "worker", task: "implement the parser" },
+		undefined,
+		undefined,
+		{
+			model: { id: "deepseek-v4-flash" },
+		},
+	)) as { details: { name: string } };
 
 	expect(herdr.agent(spawned.details.name)?.args).toEqual(["--model", "deepseek-v4-flash"]);
 });
@@ -124,10 +132,12 @@ model: anthropic/claude-sonnet-4
 	);
 
 	const herdr = memoryHerdr({ nextPaneId: "w1:p2" });
-	let execute: ((
-		toolCallId: string,
-		params: { role: string; task: string; model?: string },
-	) => Promise<unknown>) | undefined;
+	let execute:
+		| ((
+				toolCallId: string,
+				params: { role: string; task: string; model?: string },
+		  ) => Promise<unknown>)
+		| undefined;
 
 	herdExtension(
 		{
@@ -153,7 +163,10 @@ test("herd_status reports the spawned agent state", async () => {
 
 	createHerdExtension(
 		{
-			registerTool(tool: { name: string; execute: (id: string, params: Record<string, string>) => Promise<unknown> }) {
+			registerTool(tool: {
+				name: string;
+				execute: (id: string, params: Record<string, string>) => Promise<unknown>;
+			}) {
 				tools.set(tool.name, tool.execute);
 			},
 		},
@@ -185,7 +198,10 @@ test("herd_steer prompts the spawned agent", async () => {
 
 	createHerdExtension(
 		{
-			registerTool(tool: { name: string; execute: (id: string, params: Record<string, string>) => Promise<unknown> }) {
+			registerTool(tool: {
+				name: string;
+				execute: (id: string, params: Record<string, string>) => Promise<unknown>;
+			}) {
 				tools.set(tool.name, tool.execute);
 			},
 		},
@@ -275,10 +291,12 @@ test("herd_spawn uses settings.json herd overrides", async () => {
 	);
 
 	const herdr = memoryHerdr({ nextPaneId: "w1:p2" });
-	let execute: ((
-		toolCallId: string,
-		params: { role: string; task: string; model?: string },
-	) => Promise<unknown>) | undefined;
+	let execute:
+		| ((
+				toolCallId: string,
+				params: { role: string; task: string; model?: string },
+		  ) => Promise<unknown>)
+		| undefined;
 
 	herdExtension(
 		{

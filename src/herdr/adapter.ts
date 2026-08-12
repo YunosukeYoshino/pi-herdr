@@ -25,14 +25,7 @@ export function herdrProcessRunner(command = "herdr"): HerdrCommandRunner {
 export function createHerdrCli(runner: HerdrCommandRunner): HerdrClient {
 	return {
 		async splitPane(input) {
-			const argv = [
-				"pane",
-				"split",
-				"--current",
-				"--direction",
-				"right",
-				"--no-focus",
-			];
+			const argv = ["pane", "split", "--current", "--direction", "right", "--no-focus"];
 			if (input?.cwd) {
 				argv.push("--cwd", input.cwd);
 			}
@@ -56,13 +49,7 @@ export function createHerdrCli(runner: HerdrCommandRunner): HerdrClient {
 			]);
 		},
 		async promptAgent(input) {
-			await runner.run([
-				"agent",
-				"prompt",
-				input.name,
-				input.text,
-				"--wait",
-			]);
+			await runner.run(["agent", "prompt", input.name, input.text, "--wait"]);
 		},
 		async getAgent(name) {
 			const stdout = await runner.run(["agent", "get", name]);
