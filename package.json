@@ -37,7 +37,7 @@
   },
   "pi": {
     "extensions": ["./index.ts"],
-    "image": "https://raw.githubusercontent.com/YunosukeYoshino/pi-herdr/main/docs/hero.png"
+    "image": "https://raw.githubusercontent.com/YunosukeYoshino/pi-herdr/main/docs/banner.png"
   },
   "peerDependencies": {
     "typebox": "*"
