@@ -1,0 +1,41 @@
+name: Publish Package
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+          package-manager-cache: false
+
+      - name: Install
+        run: bun install --frozen-lockfile
+        env:
+          HUSKY: "0"
+
+      - run: bun run lint
+      - run: bun run typecheck
+      - run: bun test
+
+      - name: Publish
+        run: npm publish --access public
+        env:
+          HUSKY: "0"
