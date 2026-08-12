@@ -88,7 +88,7 @@ Those are ordinary Pi requests. Pi decides whether to call `herd_spawn`, `herd_s
 | Review a diff | “Use reviewer to review this diff. Do not implement.” |
 | Follow up | “Tell worker-a1b2c3d4 to add tests too.” |
 | Check progress | “What's the status of worker-a1b2c3d4?” |
-| Pin a model for one run | “Spawn worker with model deepseek-v4-flash on this task.” |
+| Pin a model for one run | “Spawn worker with model deepseek-v4-pro on this task.” |
 
 The extension ships with two roles you can use immediately.
 
@@ -96,8 +96,8 @@ The extension ships with two roles you can use immediately.
 
 | Role | Use it when you want... |
 |------|-------------------------|
-| `worker` | Implementation work. Default model: `deepseek-v4-pro`. |
-| `reviewer` | Code review only. Default model: `anthropic/claude-sonnet-4`. |
+| `worker` | Implementation work. Default model: `deepseek-v4-flash`. |
+| `reviewer` | Code review only. Default model: `kimi-k3`. |
 
 A simple rule of thumb: use `worker` to change code, `reviewer` to check it.
 
@@ -112,7 +112,7 @@ For a persistent override, edit settings:
   "herd": {
     "defaultModel": "deepseek-v4-flash",
     "agentOverrides": {
-      "reviewer": { "model": "anthropic/claude-sonnet-4" }
+      "reviewer": { "model": "kimi-k3" }
     }
   }
 }

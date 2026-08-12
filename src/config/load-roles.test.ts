@@ -28,7 +28,7 @@ test("loadRoles returns no roles when the directory is missing", () => {
 
 test("bundled agents include worker and reviewer models", () => {
 	expect(loadRoles(join(import.meta.dir, "../..", "agents"))).toEqual({
-		worker: { name: "worker", model: "deepseek-v4-pro" },
-		reviewer: { name: "reviewer", model: "anthropic/claude-sonnet-4" },
+		worker: { name: "worker", model: "deepseek-v4-flash" },
+		reviewer: { name: "reviewer", model: "kimi-k3" },
 	});
 });
