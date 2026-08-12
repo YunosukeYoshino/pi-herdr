@@ -1,5 +1,7 @@
 # pi-herdr
 
+![pi-herdr](docs/hero.png)
+
 `@yunosukeyoshino/pi-herdr` lets Pi delegate work to a child Pi in a neighboring [Herdr](https://herdr.dev) pane. Use it when you want a specialist with its own model, a visible terminal you can watch, and a parent session that keeps its full toolset.
 
 ## Installation

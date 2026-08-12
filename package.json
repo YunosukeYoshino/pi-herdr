@@ -36,7 +36,8 @@
     "access": "public"
   },
   "pi": {
-    "extensions": ["./index.ts"]
+    "extensions": ["./index.ts"],
+    "image": "https://raw.githubusercontent.com/YunosukeYoshino/pi-herdr/main/docs/hero.png"
   },
   "peerDependencies": {
     "typebox": "*"
